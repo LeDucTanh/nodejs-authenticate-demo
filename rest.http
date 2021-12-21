@@ -1,0 +1,54 @@
+###
+POST http://localhost:3000/user/register
+Content-Type: application/json
+
+{
+    "email": "TanhLe08@gmail.com",
+    "password": "12345"
+}
+
+###
+POST http://localhost:3000/user/refresh-token
+Content-Type: application/json
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWJmNTU3MWJiY2VmMjgyYjk3N2EzYjIiLCJpYXQiOjE2Mzk5MjkyODYsImV4cCI6MTY3MTQ4Njg4Nn0.GgzdkYshY0F25erBAh3Rt7fvtdbvU7G2cSv9VY2bfvc"
+}
+
+###
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+    "email": "TanhLe07@gmail.com",
+    "password": "123456"
+}
+
+###
+POST http://localhost:3000/user/change-password
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWJkZmZiMmI4NmIzOWUwYTU2ZGIwMTUiLCJpYXQiOjE2NDAxMDE1MjUsImV4cCI6MTY0MDE4NzkyNX0.yU24ywRP5a-bCgSSO0mz7C7yGmYT2a6UUdnNcNxpy4w
+
+{
+    "currentPassword": "12345",
+    "confirmPassword": "12345",
+    "newPassword": "123456"
+}
+
+###
+DELETE  http://localhost:3000/user/logout
+Content-Type: application/json
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWJmNTU3MWJiY2VmMjgyYjk3N2EzYjIiLCJpYXQiOjE2Mzk5NjM0MzIsImV4cCI6MTY3MTUyMTAzMn0.tO64j4_w_9JVjNgr1pAhkzseMB24_wTGTXVXQP7u1MY"
+}
+
+###
+GET http://localhost:3000/user/getList
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWJmNTU3MWJiY2VmMjgyYjk3N2EzYjIiLCJpYXQiOjE2NDAwMTM0NjksImV4cCI6MTY0MDAxMzQ3OX0.hNRW4R8z_RCWWcVwhDvHsr9ME5i0MASJGqaIEV9LSeo
+
+###
+GET http://localhost:3000/session/get
+
+###
+GET http://localhost:3000/session/set
