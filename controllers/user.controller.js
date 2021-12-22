@@ -14,7 +14,7 @@ const register = async (req, res, next) => {
         const {error} = userValidate(req.body)
         
         if (error) {
-            throw createError(error.details[0].message)
+            throw createError.UnprocessableEntity(error.details[0].message)
         }
 
         // if (!email || !password) {
@@ -39,8 +39,8 @@ const register = async (req, res, next) => {
         const savedUser = await user.save() // call pre function
 
         return res.json({
-            status: 'okay',
-            elements: savedUser
+            status: 'success',
+            data: savedUser
         })
     } catch (error) {
         next(error)
@@ -50,11 +50,10 @@ const register = async (req, res, next) => {
 const login = async (req, res, next) => {
     try {
         const {email, password} = req.body
-        console.log('tanh::: ' + req.body)
         const {error} = userValidate(req.body)
         
         if (error) {
-            throw createError(error.details[0].message)
+            throw createError.UnprocessableEntity(error.details[0].message)
         }
 
         const user = await User.findOne({
@@ -72,8 +71,10 @@ const login = async (req, res, next) => {
         const accessToken = await signAccessToken(user._id)
         const freshToken = await signRefreshToken(user._id)
         res.json({
-            accessToken,
-            freshToken
+            data: {
+                'access-token': accessToken,
+                'fresh-token': freshToken
+            }
         })
     } catch (error) {
         console.log('here::::')
@@ -114,10 +115,10 @@ const changePassword = async (req, res, next) => {
         const {currentPassword, newPassword} = req.body;
         const {error} = passwordValidate(req.body);
         if (error) {
-            throw createError.Unauthorized(error.details[0].message)
+            throw createError.UnprocessableEntity(error.details[0].message)
         }
         if (currentPassword === newPassword) {
-            throw createError.Unauthorized('current password and new password must not be the same')
+            throw createError.UnprocessableEntity('current password and new password must not be the same')
         }
         const {userId} = req.payload
         // const user = await User.findOne({
