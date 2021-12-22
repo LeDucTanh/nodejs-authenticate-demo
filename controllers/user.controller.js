@@ -65,19 +65,19 @@ const login = async (req, res, next) => {
 
         const isValid = await user.isCheckPassword(password)
         if (!isValid) {
-            throw createError.Unauthorized()
+            throw createError.Unauthorized('wrong password')
         }
 
         const accessToken = await signAccessToken(user._id)
         const freshToken = await signRefreshToken(user._id)
         res.json({
+            status: 200,
             data: {
                 'access-token': accessToken,
                 'fresh-token': freshToken
             }
         })
     } catch (error) {
-        console.log('here::::')
         next(error)
     }
 }

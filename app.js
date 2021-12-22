@@ -3,6 +3,7 @@ const app = express();
 
 const userRoutes = require('./routes/user.routes');
 const sessionRoutes = require('./routes/session.routes');
+const uploadFileRoutes = require('./routes/upload-file');
 
 const cookieParser = require('cookie-parser')
 const createError = require('http-errors')
@@ -13,6 +14,9 @@ const Redis = require('ioredis');
 const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
 const clientRedis = new Redis();
+const cors = require('cors');
+
+app.use(cors());
 
 // Express configuration
 app.use(express.json());
@@ -74,6 +78,7 @@ app.use(session({
 // Routes
 app.use('/user', userRoutes);
 app.use('/session', sessionRoutes);
+app.use('/upload-file', uploadFileRoutes);
 
 // Middlewares
 app.use((req, res, next) => {
