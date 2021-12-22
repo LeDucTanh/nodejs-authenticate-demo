@@ -174,13 +174,9 @@ definitions:
         description: ''
         example: 409
         type: integer
-      messages:
-        description: ''
-        example: "abc@gmail.com has been registerd"
-        type: object
       message:
         description: ''
-        example: ""
+        example: "abc@gmail.com has been registerd"
         type: string
   LoginResponse:
     title: Login Response
