@@ -3,7 +3,7 @@ POST http://localhost:3000/user/register
 Content-Type: application/json
 
 {
-    "email": "TanhLe10@gmail.com",
+    "email": "TanhLe11@gmail.com",
     "password": "12345"
 }
 
@@ -20,14 +20,14 @@ POST http://localhost:3000/user/login
 Content-Type: application/json
 
 {
-    "email": "TanhLe08@gmail.com",
-    "password": "123456"
+    "email": "TanhLe10@gmail.com",
+    "password": "12345"
 }
 
 ###
 POST http://localhost:3000/user/change-password
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWJkZmZiMmI4NmIzOWUwYTU2ZGIwMTUiLCJpYXQiOjE2NDAxMDE1MjUsImV4cCI6MTY0MDE4NzkyNX0.yU24ywRP5a-bCgSSO0mz7C7yGmYT2a6UUdnNcNxpy4w
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWMzNGRkNmM1YWUzNTQzNzhhYTU1NzgiLCJpYXQiOjE2NDAyMzQ1NzcsImV4cCI6MTY0MDMyMDk3N30.Natcvc-NBOV2BAAu__lAhPGaukE5tWEXIJjXODN28D0
 
 {
     "currentPassword": "12345",

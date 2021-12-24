@@ -23,4 +23,7 @@ router.post('/multiple', upload.array('images', 3), (req, res) => {
     res.send('Multiple files uploaded successfully')
 })
 
+// index mongodb
+// swagger ui
+
 module.exports = router;

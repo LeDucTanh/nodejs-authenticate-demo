@@ -69,12 +69,12 @@ const login = async (req, res, next) => {
         }
 
         const accessToken = await signAccessToken(user._id)
-        const freshToken = await signRefreshToken(user._id)
+        const refreshToken = await signRefreshToken(user._id)
         res.json({
             status: 200,
             data: {
                 'access-token': accessToken,
-                'fresh-token': freshToken
+                refreshToken
             }
         })
     } catch (error) {
@@ -136,7 +136,7 @@ const changePassword = async (req, res, next) => {
             'message': 'Change password successfully'
         })
     } catch (error) {
-        next(error)
+        next(error);
     }
 }
 

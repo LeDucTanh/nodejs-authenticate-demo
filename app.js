@@ -4,6 +4,7 @@ const app = express();
 const userRoutes = require('./routes/user.routes');
 const sessionRoutes = require('./routes/session.routes');
 const uploadFileRoutes = require('./routes/upload-file');
+const metadataRoutes = require('./routes/metadata.routes');
 
 const cookieParser = require('cookie-parser')
 const createError = require('http-errors')
@@ -79,6 +80,7 @@ app.use(session({
 app.use('/user', userRoutes);
 app.use('/session', sessionRoutes);
 app.use('/upload-file', uploadFileRoutes);
+app.use('/metadata', metadataRoutes);
 
 // Middlewares
 app.use((req, res, next) => {
