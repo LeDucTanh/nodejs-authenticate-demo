@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express');
 const app = express();
 
@@ -16,12 +18,20 @@ const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
 const clientRedis = new Redis();
 const cors = require('cors');
+const swaggerUI = require('swagger-ui-express');
+const YAML = require('yamljs');
+
+const path = require('path');
+const swaggerLocation = path.join(__dirname, 'swagger.json');
+const swaggerJsDocs = require(swaggerLocation);
 
 app.use(cors());
 
 // Express configuration
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerJsDocs));
 
 app.use(cookieParser())
 

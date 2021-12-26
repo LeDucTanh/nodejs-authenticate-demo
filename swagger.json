@@ -1,0 +1,333 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "1.0",
+		"title": "API",
+		"description": "API"
+	},
+	"host": "localhost:3000",
+	"basePath": "/",
+	"securityDefinitions": {
+		"auth": {
+			"type": "oauth2",
+			"flow": "implicit",
+			"authorizationUrl": "localhost/api",
+			"scopes": {}
+		}
+	},
+	"schemes": [
+		"http"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"produces": [
+		"application/json"
+	],
+	"paths": {
+		"/user/register": {
+			"post": {
+				"summary": "register",
+				"tags": [
+					"User"
+				],
+				"operationId": "UserRegister",
+				"produces": [
+					"application/json"
+				],
+				"description": "description",
+				"parameters": [
+					{
+						"name": "Body",
+						"in": "body",
+						"required": "true",
+						"description": "",
+						"schema": {
+							"title": "Register Request",
+							"example": {
+								"email": "abc@gmail.com",
+								"password": "1234"
+							},
+							"type": "object",
+							"properties": {
+								"email": {
+									"description": "",
+									"example": "abc@gmail.com",
+									"type": "string"
+								},
+								"password": {
+									"description": "",
+									"example": "1234",
+									"type": "string"
+								}
+							},
+							"required": [
+								"email",
+								"password"
+							]
+						}
+					},
+					{
+						"name": "Content-Type",
+						"in": "header",
+						"required": "true",
+						"type": "string",
+						"description": ""
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "|",
+						"schema": {
+							"title": "Register Response",
+							"type": "object",
+							"properties": {
+								"status": {
+									"description": "",
+									"example": "200",
+									"type": "integer"
+								},
+								"data": {
+									"description": "",
+									"example": {
+										"username": "tanhle10@gmail.com",
+										"password": "$2b$10$CefvBAVQkn7B6swXSGIfH.DaHr.hvMSKOPM/h7Vq4uq.iOLbp92kq",
+										"_id": "61c34dd6c5ae354378aa5578",
+										"__v": 0 
+									},
+									"type": "object"
+								}
+							}
+						}
+					},
+					"422": {
+						"description": "",
+						"schema": {
+							"title": "Response 422 register",
+							"type": "object",
+							"properties": {
+								"status": {
+									"description": "",
+									"example": "422",
+									"type": "integer"
+								},
+								"message": {
+									"description": "",
+									"example": "\"password\" length must be at least 4 characters long",
+									"type": "string"
+								}
+							}
+						}
+					},
+					"409": {
+						"description": "",
+						"schema": {
+							"title": "Response 409 register",
+							"type": "object",
+							"properties": {
+								"status": {
+									"description": "",
+									"example": "409",
+									"type": "integer"
+								},
+								"message": {
+									"description": "",
+									"example": "abc@gmail.com has been registerd",
+									"type": "string"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "",
+						"schema": {
+							"title": "Response 400",
+							"type": "object",
+							"properties": {
+								"status": {
+									"description": "",
+									"example": "400",
+									"type": "integer"
+								},
+								"message": {
+									"description": "",
+									"example": "Bad request",
+									"type": "string"
+								}
+							}
+						}
+					}, 
+					"500": {
+						"description": "",
+						"schema": {
+							"title": "Response 500",
+							"type": "object",
+							"properties": {
+								"status": {
+									"description": "",
+									"example": "500",
+									"type": "integer"
+								},
+								"message": {
+									"description": "",
+									"example": "Server internal error."
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/user/login": {
+			"post": {
+				"summary": "register",
+				"tags": [
+					"User"
+				],
+				"operationId": "UserRegister",
+				"produces": [
+					"application/json"
+				],
+				"description": "description",
+				"parameters": [
+					{
+						"name": "Body",
+						"in": "body",
+						"required": "true",
+						"description": "",
+						"schema": {
+							"title": "Register Request",
+							"example": {
+								"email": "abc@gmail.com",
+								"password": "1234"
+							},
+							"type": "object",
+							"properties": {
+								"email": {
+									"description": "",
+									"example": "abc@gmail.com",
+									"type": "string"
+								},
+								"password": {
+									"description": "",
+									"example": "1234",
+									"type": "string"
+								}
+							},
+							"required": [
+								"email",
+								"password"
+							]
+						}
+					},
+					{
+						"name": "Content-Type",
+						"in": "header",
+						"required": "true",
+						"type": "string",
+						"description": ""
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "|",
+						"schema": {
+							"title": "Register Response",
+							"type": "object",
+							"properties": {
+								"status": {
+									"description": "",
+									"example": "200",
+									"type": "integer"
+								},
+								"data": {
+									"description": "",
+									"example": {
+										"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vYXBpLnRlc3QvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUzNjY2NTI2MCwiZXhwIjoxNTM3MjcwMDYwLCJuYmYiOjE1MzY2NjUyNjAsImp0aSI6Ik5oOWZTZWM3ZWJmazlmbVUiLCJzdWIiOjEsInBydiI6Ijk5ZjY5YmNiM2FmODQ2YjBmMDg0NTc4NWI1NjQwMDdiYTBiYmVlMzYifQ.6ddLlUibggojItxv0xMBWkq10-K3i8eSCugJVpJvTRU",
+										"fresh_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vYXBpLnRlc3QvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUzNjY2NTI2MCwiZXhwIjoxNTM3MjcwMDYwLCJuYmYiOjE1MzY2NjUyNjAsImp0aSI6Ik5oOWZTZWM3ZWJmazlmbVUiLCJzdWIiOjEsInBydiI6Ijk5ZjY5YmNiM2FmODQ2YjBmMDg0NTc4NWI1NjQwMDdiYTBiYmVlMzYifQ.6ddLlUibggojItxv0xMBWkq10-K3i8eSCugJVpJvTRU"
+									},
+									"type": "object"
+								}
+							}
+						}
+					},
+					"422": {
+						"description": "",
+						"schema": {
+							"title": "Response 422 register",
+							"type": "object",
+							"properties": {
+								"status": {
+									"description": "",
+									"example": "422",
+									"type": "integer"
+								},
+								"message": {
+									"description": "",
+									"example": "\"password\" length must be at least 4 characters long",
+									"type": "string"
+								}
+							}
+						}
+					},
+					"409": {
+						"description": "",
+						"schema": {
+							"title": "Response 409 register",
+							"type": "object",
+							"properties": {
+								"status": {
+									"description": "",
+									"example": "409",
+									"type": "integer"
+								},
+								"message": {
+									"description": "",
+									"example": "abc@gmail.com has been registerd",
+									"type": "string"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "",
+						"schema": {
+							"title": "Response 400",
+							"type": "object",
+							"properties": {
+								"status": {
+									"description": "",
+									"example": "400",
+									"type": "integer"
+								},
+								"message": {
+									"description": "",
+									"example": "Bad request",
+									"type": "string"
+								}
+							}
+						}
+					}, 
+					"500": {
+						"description": "",
+						"schema": {
+							"title": "Response 500",
+							"type": "object",
+							"properties": {
+								"status": {
+									"description": "",
+									"example": "500",
+									"type": "integer"
+								},
+								"message": {
+									"description": "",
+									"example": "Server internal error."
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
