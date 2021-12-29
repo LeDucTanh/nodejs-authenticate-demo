@@ -19,7 +19,6 @@ const RedisStore = require('connect-redis')(session);
 const clientRedis = new Redis();
 const cors = require('cors');
 const swaggerUI = require('swagger-ui-express');
-const YAML = require('yamljs');
 
 const path = require('path');
 const swaggerLocation = path.join(__dirname, 'swagger.json');
